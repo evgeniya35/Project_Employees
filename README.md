@@ -1,7 +1,7 @@
 # Проектная работа
 Тестовое задание на позицию Junior Python Developer abz.agency
 
-[Текст задания](task_text.html)
+[Текст задания](https://drive.google.com/file/d/1qUzx0m_Koj83k_G8BScCNK7opazbuDzk/view)
 
 
 [Доступна демо версия сайта](https://.....).
