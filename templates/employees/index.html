@@ -1,0 +1,71 @@
+{% extends 'employees/base.html' %}
+{% load mptt_tags %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="card-body">
+            <h5 class="card-title">All employees</h5>
+            <ul class="root">
+              {% recursetree employees %}
+              <li>
+                {{ node.name }}
+                {% if not node.is_leaf_node %}
+                <ul class="children">
+                  {{ children }}
+                </ul>
+                {% endif %}
+              </li>
+              {% endrecursetree %}
+            </ul>  
+          </div>
+        </div>
+      </div>
+    </div>      
+    <div class="col-sm">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="card-body">
+            <h5 class="card-title">All bosses of {{ employee.name }}</h5>
+            <ul class="root">
+              {% recursetree ancestors %}
+              <li>
+                {{ node.name }}
+                {% if not node.is_leaf_node %}
+                <ul class="children">
+                  {{ children }}
+                </ul>
+                {% endif %}
+              </li>
+              {% endrecursetree %}
+            </ul>  
+          </div>
+        </div>
+      </div>
+    </div>      
+    <div class="col-sm">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="card-body">
+            <h5 class="card-title">All bosses and employees of {{ employee.name }}</h5>
+            <ul class="root">
+              {% recursetree family %}
+              <li>
+                {{ node.name }}
+                {% if not node.is_leaf_node %}
+                <ul class="children">
+                  {{ children }}
+                </ul>
+                {% endif %}
+              </li>
+              {% endrecursetree %}
+            </ul>  
+          </div>
+        </div>
+      </div>
+    </div>      
+  </div>
+</div>
+{% endblock %}
