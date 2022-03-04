@@ -4,9 +4,12 @@ from django.shortcuts import render
 from django_filters.views import FilterView
 from django_tables2.views import SingleTableMixin
 
-from employees.models import Employee
-from employees.tables import EmployeeTable
-from employees.filters import EmployeeFilter
+from rest_framework import viewsets
+
+from .models import Employee
+from .tables import EmployeeTable
+from .filters import EmployeeFilter
+from .serializers import EmployeeSerializer
 
 # Create your views here.
 
@@ -32,3 +35,11 @@ class FilteredEmployeeListView(SingleTableMixin, FilterView):
     template_name = 'employees/employees.html'
 
     filterset_class = EmployeeFilter
+
+
+def ajax_employees(request):
+    return render(request, 'employees/ajax_employees.html')
+
+class EmployeeViewSet(viewsets.ModelViewSet):
+    queryset = Employee.objects.all().order_by('id')
+    serializer_class = EmployeeSerializer
