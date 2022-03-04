@@ -4,7 +4,7 @@
 [Текст задания](https://drive.google.com/file/d/1qUzx0m_Koj83k_G8BScCNK7opazbuDzk/view)
 
 
-[Доступна демо версия сайта](https://.....).
+[Доступна демо версия сайта](https://santa.spin-one.ru/).
 
 
 ## Установка
@@ -55,7 +55,7 @@ python manage.py runserver
 Перейдите в адресу [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
 
-Файлы с данными профессий взят [отсюда](https://github.com/johnlsheridan/occupations.git).
+Файл с данными профессий взят [отсюда](https://github.com/johnlsheridan/occupations.git).
 
 
 ### Цель проекта
